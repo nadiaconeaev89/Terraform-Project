@@ -1,0 +1,1 @@
+This is the folder that contains files to set up a project in GCP
