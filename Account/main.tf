@@ -11,8 +11,8 @@ resource "random_password" "password" {
 	upper = false
 }
 
-resource "google_project" "terraform_project" {
-	name = "terraform_project"
+resource "google_project" "terraformproject" {
+	name = "terraformproject"
 	project_id = random_password.password.result
 	billing_account = data.google_billing_account.acct.id
 }
@@ -23,7 +23,7 @@ resource "null_resource" "set-project" {
   }
 	
 	provisioner "local-exec" {
-	command = "gcloud config set project ${google_project.terraform_project.project_id}"
+	command = "gcloud config set project ${google_project.terraformproject.project_id}"
 	}
 }
 
@@ -39,7 +39,7 @@ resource "null_resource" "unset-project" {
 
 resource "null_resource" "enable-apis" {
   depends_on = [
-    google_project.terraform_project,
+    google_project.terraformproject,
     null_resource.set-project
   ]
   triggers = {
