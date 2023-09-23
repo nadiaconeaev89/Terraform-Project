@@ -1,5 +1,5 @@
-resource "google_compute_network" "vpc_network" {
-  name = "vpc-network"
-  auto_create_subnetworks = true
-  routing_mode = "GLOBAL"
+resource "google_compute_network" "vpc-network-team3-project" {
+  name                    = var.vpc_name
+  auto_create_subnetworks = "true"
+  routing_mode            = "GLOBAL"
 }

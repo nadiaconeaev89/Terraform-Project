@@ -1,38 +1,15 @@
-module "firewall_rules" {
-  source       = "terraform-google-modules/network/google//modules/firewall-rules"
-  project_id = "cdcuixskztmikh"
-  network_name = "vpc-network"
+resource "google_compute_firewall" "allow-traffic" {
+  name    = "test-firewall"
+  network = google_compute_network.vpc-network-team3-project.name
 
-  rules = [{
-    name                    = "allow-ssh-ingress"
-    description             = null
-    direction               = "INGRESS"
-    priority                = null
-    source_ranges           = ["0.0.0.0/0"]
-    source_tags             = null
-    source_service_accounts = null
-    target_tags             = null
-    target_service_accounts = null
-    allow = [{
-      protocol = "tcp"
-      ports    = ["22"]
-    }]
-    deny = []
+  allow {
+    protocol = "icmp"
+  }
 
-    name                    = "allow-http-ingress"
-    description             = null
-    direction               = "INGRESS"
-    priority                = null
-    source_ranges           = ["0.0.0.0/0"]
-    source_tags             = null
-    source_service_accounts = null
-    target_tags             = null
-    target_service_accounts = null
-    allow = [{
-      protocol = "tcp"
-      ports    = ["80", "443"]
-    }]
-    deny = []
-  }]
-
- }
+  allow {
+    protocol = "tcp"
+    ports    = ["80", "443", "22", "3306"]
+  }
+  source_tags   = ["wordpress-firewall"]
+  source_ranges = ["0.0.0.0/0"]
+}
