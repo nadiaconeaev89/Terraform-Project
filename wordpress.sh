@@ -11,3 +11,4 @@ sudo mv /var/www/html/wordpress/* /var/www/html/,
 sudo chown -R apache:apache /var/www/html/,
 setenforce 0
 sudo systemctl restart httpd
+systemctl enable httpd
