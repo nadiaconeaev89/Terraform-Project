@@ -20,9 +20,6 @@ resource "google_sql_database_instance" "database" {
 
       }
 
-      # location_preference {
-      #   zone = var.zone
-      # }
     }
   }
 }

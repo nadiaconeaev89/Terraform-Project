@@ -1,5 +1,5 @@
 resource "random_id" "bucket_prefix" {
-  byte_length = 14
+  byte_length = 12
 }
 
 resource "google_storage_bucket" "default" {

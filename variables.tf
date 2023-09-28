@@ -6,7 +6,7 @@ variable "machine_type" {
 
 variable "project_name" {
   type        = string
-  default     = "ozmcbzjpcafbsk" #that yellow part 
+  default     = "riirispahzlwli" #that yellow part 
   description = "Provide  your project name"
 }
 
