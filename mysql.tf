@@ -11,20 +11,20 @@ resource "google_sql_database_instance" "database" {
   settings {
     tier = "db-f1-micro"
 
-ip_configuration {
+    ip_configuration {
       ipv4_enabled = "true"
 
       authorized_networks {
-        value           = var.authorized_networks
-        name            = var.db_username
-        
+        value = var.authorized_networks
+        name  = var.db_username
+
       }
-    
-    # location_preference {
-    #   zone = var.zone
-    # }
+
+      # location_preference {
+      #   zone = var.zone
+      # }
     }
-}
+  }
 }
 
 resource "google_sql_database" "database" {

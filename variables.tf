@@ -6,22 +6,22 @@ variable "machine_type" {
 
 variable "project_name" {
   type        = string
-  default     = "gztlmpnkecfedb" #that yellow part 
+  default     = "ozmcbzjpcafbsk" #that yellow part 
   description = "Provide  your project name"
 }
 
 
 variable "region" {
+  description = "Please provide a region to build resources"
   type        = string
   default     = "us-central1"
-  description = "add desired region"
 }
 
 
 variable "zone" {
+  description = "Please provide a region to build resources"
   type        = string
   default     = "us-central1-a"
-  description = "zone where to deploy resource"
 }
 
 variable "minimum_instances" {
@@ -45,7 +45,7 @@ variable "data_base_version" {
 
 variable "db_password" {
   type        = string
-  default     = "mydbppassword"
+  default     = "mydbpassword"
   description = "Database password"
 }
 
@@ -59,7 +59,7 @@ variable "db_host" {
   type        = string
   default     = "%"
   description = "description"
-  
+
 }
 
 variable "db_name" {
@@ -68,10 +68,10 @@ variable "db_name" {
   description = "description"
 }
 
-variable "vpc_subnetip_range" {
+variable "cidr" {
+  description = "Please provide a cidr for VPC"
   type        = string
-  default     = "192.168.10.0/24"
-  description = "CIDR range of the VPC being created"
+  default     = ""
 }
 
 variable "vpc_subnet_name" {
@@ -95,7 +95,7 @@ variable "ASG_name" {
 variable "template_name" {
   type        = string
   default     = "my-instance-template-team3-project"
-  description = "Provide a name for the compute instance template" 
+  description = "Provide a name for the compute instance template"
 }
 
 variable "targetpool_name" {

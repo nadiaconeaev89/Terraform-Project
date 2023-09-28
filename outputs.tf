@@ -5,9 +5,9 @@ output "name_of_vpc" {
 
 
 output "database_username" {
-    value = google_sql_user.users.name
+  value = google_sql_user.users.name
 }
 
 output "target-pool-name" {
-    value = google_compute_target_pool.team3-project.name
+  value = google_compute_target_pool.team3-project.name
 }
